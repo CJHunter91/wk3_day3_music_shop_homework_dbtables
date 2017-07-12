@@ -23,7 +23,6 @@ album1.update
 Artist.list_all
 Album.list_all
 artist1.list_albums
-artist1.delete
-album1.delete
+
 binding.pry
 nil
