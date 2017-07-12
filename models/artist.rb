@@ -2,9 +2,6 @@ require('pry')
 require_relative('../db/sql_runner')
 require_relative('album')
 
-
-
-
 class Artist
 
   attr_reader :id
@@ -15,7 +12,7 @@ def initialize(origin)
 end
 
 def save
-  sql = "INSERT INTO artists(name) VALUES ('#{@name}') RETURNING id;"
+  sql = "INSERT INTO artists (name) VALUES ('#{@name}') RETURNING id;"
   @id = SqlRunner.run(sql)[0]['id'].to_i
 end
 
@@ -25,7 +22,11 @@ def self.list_all
   artists.map {|artist| Artist.new(artist)}
 end
 
-
+def list_albums
+  sql = "SELECT * FROM albums WHERE artist_id = #{@id};"
+  albums = SqlRunner.run(sql)
+  return albums.map{|album| Album.new(album)}
+end
 
 
 end
