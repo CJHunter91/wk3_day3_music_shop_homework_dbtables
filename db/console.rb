@@ -10,8 +10,13 @@ album2= Album.new({'title' => 'Godsmack', 'genre' => 'metal', 'artist_id' => art
 
 album1.save
 album2.save
+
+
 artist1.name = "Chris"
 artist1.update
+
+album1.title = "Crispy"
+album1.update
 Artist.list_all
 Album.list_all
 artist1.list_albums
