@@ -41,6 +41,10 @@ class Album
     SqlRunner.run("DELETE FROM albums;")
   end
 
+  def delete
+    SqlRunner.run("DELETE FROM albums WHERE id = #{@id};")
+  end
+
   def self.list_all
     sql = "SELECT * FROM albums;"
     albums = SqlRunner.run(sql)
