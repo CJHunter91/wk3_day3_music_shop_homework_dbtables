@@ -56,4 +56,10 @@ class Album
    return SqlRunner.run(sql)[0]
   end
 
+  def self.find_by_id(id)
+    sql = "SELECT * FROM albums"
+    albums = SqlRunner.run(sql)
+    albums.find{|album| album['id'] = id}
+  end
+
 end
