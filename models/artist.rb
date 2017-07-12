@@ -18,7 +18,7 @@ class Artist
   end
 
   def update
-    sql = "UPDATE artists SET name = '#{@name}'"
+    sql = "UPDATE artists SET name = '#{@name}';"
     SqlRunner.run(sql)
   end
 

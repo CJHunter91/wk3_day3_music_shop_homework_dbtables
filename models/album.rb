@@ -32,8 +32,13 @@ class Album
     '#{@title}',
     '#{@genre}',
      #{@artist_id}
-     );"
+     ) WHERE
+     id = #{@id};"
     SqlRunner.run(sql)
+  end
+
+  def self.delete_all
+    SqlRunner.run("DELETE FROM albums;")
   end
 
   def self.list_all
